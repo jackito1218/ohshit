@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Утасны жагсаалт</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Нэр</th>
+      <th>Дугаар</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.number %></td>
+        <td><%= link_to 'Харуулах', contact %></td>
+        <td><%= link_to 'Засварлах', edit_contact_path(contact) %></td>
+        <td><%= link_to 'Устгах', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Шинэ нэр үүсгэх', new_contact_path %>
